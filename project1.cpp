@@ -17,19 +17,19 @@ protected:
 	int noRows; //Number of rows of the original matrix
 	int noCols; //Number of columns of the original matrix
 	int noNonSparseValues;//Number of NZVs of the original matrix
-	int* valueArray;
-	int* IA;
-	int* JA;
+	int* valueArray; //array of nonsparse values
+	int* IA; //the cumulative number of nonsparse values prior to index row
+	int* JA; //column numbers of each nonsparse value
 
 public:
-	CSR();
-	CSR(int n, int m, int numNZV);
+	CSR(); //default constructor
+	CSR(int n, int m, int numNZV); //overloaded constructor
 	void setArrays(int* IA, int* JA, int* VA);
 	CSR* Add(CSR& M); //Matrix Add
 	void display_matrix(); //display in matrix form
-	void display_valueArray();
-	void display_JA();
-	void display_IA();
+	void display_valueArray(); //display values
+	void display_JA(); //display column numbers of values
+	void display_IA(); //display cumulative row value count
 	int getRows();
 	int getCols();
 	int getnumNZV();
